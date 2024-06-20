@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -79,14 +80,15 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',  # Use 'mysql' instead of 'postgresql_psycopg2'
         'NAME': 'cafe_portal_db',
         'USER': 'your_db_user',
         'PASSWORD': 'your_db_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': 'localhost',  # Set to your MySQL host
+        'PORT': '3306',  # Default MySQL port
     }
 }
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
