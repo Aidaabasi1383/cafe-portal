@@ -1,10 +1,14 @@
 body {
     direction: rtl;
-    font-family: 'Vazirmatn', sans-serif; /* تغییر فونت */
+    font-family: Avenir, Helvetica, Arial, sans-serif; /* تغییر فونت */
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     padding: 0;
+    text-align: center;
+    margin-top: 60px;
     box-sizing: border-box;
-    background-color: #f4f4f4; /* تغییر رنگ پس‌زمینه */
+    background-color: #2c3e50; /* تغییر رنگ پس‌زمینه */
     color: #333; /* تغییر رنگ متن */
 }
 
