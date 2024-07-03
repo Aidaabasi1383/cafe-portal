@@ -1,0 +1,52 @@
+body {
+    direction: rtl;
+    font-family: 'Vazirmatn', sans-serif; /* تغییر فونت */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4; /* تغییر رنگ پس‌زمینه */
+    color: #333; /* تغییر رنگ متن */
+}
+
+header {
+    background-color: #548810; /* تغییر رنگ پس‌زمینه هدر */
+    color: white; /* تغییر رنگ متن هدر */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white; /* تغییر رنگ لینک‌های ناوبری */
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #333; /* تغییر رنگ پس‌زمینه فوتر */
+    color: white; /* تغییر رنگ متن فوتر */
+    text-align: center;
+    padding: 10px 0;
+}
+
+.product {
+    border: 1px solid #ccc; /* تغییر رنگ حاشیه محصولات */
+    padding: 10px;
+    margin: 10px 0;
+}
