@@ -16,7 +16,6 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -80,12 +79,12 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Use 'mysql' instead of 'postgresql_psycopg2'
+        'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'cafe_portal_db',
         'USER': 'user',
         'PASSWORD': '1234',
-        'HOST': 'localhost',  # Set to your MySQL host
-        'PORT': '3306',  # Default MySQL port
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
