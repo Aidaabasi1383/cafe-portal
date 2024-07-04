@@ -1,62 +1,42 @@
-import { createStore } from 'vuex';
-import axios from 'axios';
+import Vue from "vue";
+import Vuex from "vuex";
 
-const store = createStore({
+Vue.use(Vuex);
+
+export default new Vuex.Store({
   state: {
-    user: null,
-    products: [],
+    isLoggedIn: false,
+    isAdmin: false,
     cart: [],
-    orders: [],
   },
   mutations: {
-    setUser(state, user) {
-      state.user = user
+    login(state, payload) {
+      state.isLoggedIn = true;
+      state.isAdmin = payload.isAdmin;
     },
-    setProducts(state, products) {
-      state.products = products
+    logout(state) {
+      state.isLoggedIn = false;
+      state.isAdmin = false;
+      state.cart = [];
     },
     addToCart(state, product) {
-      state.cart.push(product)
+      const item = state.cart.find((item) => item.product.id === product.id);
+      if (item) {
+        item.quantity++;
+      } else {
+        state.cart.push({ product, quantity: 1 });
+      }
     },
-    setOrders(state, orders) {
-      state.orders = orders
-    },
-  },
-  actions: {
-    fetchProducts({ commit }) {
-      axios.get('http://localhost:8000/api/products/')
-        .then(response => {
-          commit('setProducts', response.data)
-        })
-    },
-    fetchOrders({ commit }) {
-      axios.get('http://localhost:8000/api/orders/')
-        .then(response => {
-          commit('setOrders', response.data)
-        })
-    },
-    login({ commit }, user) {
-      axios.post('http://localhost:8000/api/token/', user)
-        .then(response => {
-          commit('setUser', response.data)
-        })
-    },
-    register({ commit }, user) {
-      axios.post('http://localhost:8000/api/users/', user)
-        .then(response => {
-          commit('setUser', response.data)
-        })
-    },
-    addToCart({ commit }, product) {
-      commit('addToCart', product)
+    clearCart(state) {
+      state.cart = [];
     },
   },
   getters: {
-    user: (state) => state.user,
-    products: (state) => state.products,
-    cart: (state) => state.cart,
-    orders: (state) => state.orders,
+    totalPrice(state) {
+      return state.cart.reduce(
+        (total, item) => total + item.product.price * item.quantity,
+        0,
+      );
+    },
   },
-})
-
-export default store
+});
