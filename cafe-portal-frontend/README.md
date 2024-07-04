@@ -22,3 +22,10 @@ yarn lint --fix
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+```bash
+cd cafe-portal-frontend
+yarn build
+yarn serve
+```
+Open http://localhost:8080/
